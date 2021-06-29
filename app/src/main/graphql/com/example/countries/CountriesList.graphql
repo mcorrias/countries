@@ -1,0 +1,7 @@
+query CountriesList($filter : CountryFilterInput){
+  countries(filter: $filter){
+    code
+    name
+    capital
+  }
+}

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.countries.detailsCountry.DetailsCountryViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F4F1F8">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/detailFlag"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="center"
+                app:imgUrl="@{viewModel.code}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+
+            <TextView
+                android:id="@+id/detailNameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Name:"
+                android:visibility="@{viewModel.detailsCountry.name != null ? View.VISIBLE : View.GONE}"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailFlag" />
+
+            <TextView
+                android:id="@+id/detailNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="68dp"
+                android:text="@{viewModel.detailsCountry.name}"
+                android:visibility="@{viewModel.detailsCountry.name != null ? View.VISIBLE : View.GONE}"
+                android:textSize="18sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/detailNameLabel"
+                app:layout_constraintStart_toEndOf="@+id/detailNameLabel"
+                tools:text="Italia" />
+
+            <TextView
+                android:id="@+id/detailCapitalLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Capital:"
+                android:visibility="@{viewModel.detailsCountry.capital != null ? View.VISIBLE : View.GONE}"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailNameLabel" />
+
+            <TextView
+                android:id="@+id/detailCapitalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.detailsCountry.capital}"
+                android:textSize="18sp"
+                android:visibility="@{viewModel.detailsCountry.capital != null ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBaseline_toBaselineOf="@+id/detailCapitalLabel"
+                app:layout_constraintStart_toStartOf="@+id/detailNameText"
+                tools:text="Roma" />
+
+            <TextView
+                android:id="@+id/detailCurrencyLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Currency:"
+                android:visibility="@{viewModel.detailsCountry.currency != null ? View.VISIBLE : View.GONE}"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailCapitalLabel" />
+
+            <TextView
+                android:id="@+id/detailCurrencyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.detailsCountry.currency}"
+                android:visibility="@{viewModel.detailsCountry.currency != null ? View.VISIBLE : View.GONE}"
+                android:textSize="18sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/detailCurrencyLabel"
+                app:layout_constraintStart_toStartOf="@+id/detailCapitalText"
+                tools:text="EUR" />
+
+            <TextView
+                android:id="@+id/detailPhoneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Phone:"
+                android:visibility="@{viewModel.detailsCountry.phone != null ? View.VISIBLE : View.GONE}"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailCurrencyLabel" />
+
+            <TextView
+                android:id="@+id/detailPhoneText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.detailsCountry.phone}"
+                android:visibility="@{viewModel.detailsCountry.phone != null ? View.VISIBLE : View.GONE}"
+                android:textSize="18sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/detailPhoneLabel"
+                app:layout_constraintStart_toStartOf="@+id/detailCurrencyText"
+                tools:text="39" />
+
+            <TextView
+                android:id="@+id/detailLanguagesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Language(s):"
+                android:visibility="@{viewModel.detailsCountry.languages[0] != null ? View.VISIBLE : View.GONE}"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailPhoneLabel" />
+
+            <TextView
+                android:id="@+id/detailLanguagesText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.countryLanguage}"
+                android:visibility="@{viewModel.detailsCountry.languages[0] != null ? View.VISIBLE : View.GONE}"
+                android:textSize="18sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/detailLanguagesLabel"
+                app:layout_constraintStart_toStartOf="@+id/detailPhoneText"
+                tools:text="Italian" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

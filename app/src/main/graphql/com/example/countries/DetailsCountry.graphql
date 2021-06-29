@@ -1,0 +1,12 @@
+query DetailsCountry($id: ID!){
+  country(code:$id){
+    code
+    name
+    capital
+    currency
+    phone
+    languages{
+      name
+    }
+  }
+}

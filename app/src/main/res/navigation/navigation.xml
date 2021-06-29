@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+    app:startDestination="@id/listCountriesFragment">
+
+    <fragment
+        android:id="@+id/listCountriesFragment"
+        android:name="com.example.countries.listCountries.ListCountriesFragment"
+        android:label="ListCountriesFragment" >
+        <action
+            android:id="@+id/action_listCountriesFragment_to_detailsCountryFragment"
+            app:destination="@id/detailsCountryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsCountryFragment"
+        android:name="com.example.countries.detailsCountry.DetailsCountryFragment"
+        android:label="DetailsCountryFragment" >
+        <argument
+            android:name="code"
+            app:argType="string" />
+    </fragment>
+</navigation>
